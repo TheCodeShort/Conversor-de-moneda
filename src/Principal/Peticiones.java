@@ -29,9 +29,9 @@ public class Peticiones {
 
 		try {
 			HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-			System.out.println(response.body());  // Aquí imprime el contenido de la respuesta*/
-			new Gson().fromJson(response.body(), Monedas.class);
-
+			/*System.out.println(response.body());  // Aquí imprime el contenido de la respuesta*/
+			Monedas moneda =  new Gson().fromJson(response.body(), Monedas.class);
+			System.out.println(moneda);
 		} catch (IOException | InterruptedException e) {
 			throw new RuntimeException(e);
 

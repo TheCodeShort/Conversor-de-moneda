@@ -9,6 +9,5 @@ public class Principal {
         Peticiones peticiones = new Peticiones();
         peticiones.peticon();
 
-
     }
 }
