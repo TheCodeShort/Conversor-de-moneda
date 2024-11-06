@@ -2,30 +2,34 @@ package Principal;
 
 public class Calculos {
 
-	private double convercionMoneda;
+	private double monedaAPI;
 	private String monedaBase;
 	private String monedaCotizada;
+	private double convercionMoneda;
 
 
-	public Calculos(String monedaCotizada, String monedaBase, double convercionMoneda) {
-		this.monedaCotizada = monedaCotizada;
+
+	public Calculos( String monedaBase ,String monedaCotizada, double convercionMoneda) {
 		this.monedaBase = monedaBase;
+		this.monedaCotizada = monedaCotizada;
 		this.convercionMoneda = convercionMoneda;
 	}
 
 	public Calculos (Monedas misMonedas){
 		this.monedaBase = misMonedas.base_code();
 		this.monedaCotizada = misMonedas.target_code();
-		this.convercionMoneda = misMonedas.conversion_rate();
+		this.monedaAPI = misMonedas.conversion_rate();
 	}
 
-
+	public double calculoMoneda(double miMoneda){
+		return miMoneda * monedaAPI;
+	}
 
 	@Override
 	public String toString() {
-		return "Calculos = " +
-				"convercionMoneda = " + convercionMoneda +
-				", monedaBase = " + monedaBase +
-				", monedaCotizada = " + monedaCotizada;
+		return
+				"moneda Base = " + monedaBase +
+				", moneda Cotizada = " + monedaCotizada+
+				"convercion Moneda = " + convercionMoneda;
 	}
 }
