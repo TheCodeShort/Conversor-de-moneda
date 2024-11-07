@@ -28,8 +28,8 @@ public class Calculos {
 	@Override
 	public String toString() {
 		return
-				"moneda Base = " + monedaBase +
-				", moneda Cotizada = " + monedaCotizada+
-				"convercion Moneda = " + convercionMoneda;
+				"Moneda base = " + monedaBase +
+				"\nMoneda cotizada = " + monedaCotizada+
+				" \nConvercion moneda = " + convercionMoneda;
 	}
 }
