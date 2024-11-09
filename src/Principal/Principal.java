@@ -2,6 +2,7 @@ package Principal;
 
 import com.google.gson.Gson;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -23,9 +24,7 @@ public class Principal {
                 System.out.print("Digita la cantidad: ");
                 String miMoneda = monedas.nextLine().trim();
                 double miMonedaLimpia = Integer.parseInt(miMoneda);
-                if (miMonedaLimpia > 0){
 
-                }
                 System.out.println("************************************************");
 
 
@@ -51,6 +50,10 @@ public class Principal {
                     System.out.println(calculos);
                     System.out.println("***************************************");
 
+
+                    FileWriter archivo = new FileWriter("misMonedas.txt");
+                    archivo.write(calculos.toString());
+                    archivo.close();
 
                 } catch (IOException | InterruptedException e) {
                     throw new RuntimeException(e);
