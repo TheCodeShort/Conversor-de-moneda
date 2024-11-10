@@ -1,3 +1,9 @@
-Moneda base = CAD
-Moneda cotizada = USD 
-Convercion moneda = 64.728
+
+Moneda base = USD
+Moneda cotizada = COP
+Convercion moneda = 8776470.799999999
+Fecha y Hora de Convercion = 2024-11-09 22:46:54
+Moneda base = USD
+Moneda cotizada = EUR
+Convercion moneda = 9313.0
+Fecha y Hora de Convercion = 2024-11-09 22:47:19

@@ -1,12 +1,20 @@
 package Principal;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Calculos {
 
 	private double monedaAPI;
 	private String monedaBase;
 	private String monedaCotizada;
 	private double convercionMoneda;
+	private String rutaArchivo = "misMonedas.txt";
+	LocalDateTime fechaHoraAvtual = LocalDateTime.now();
 
+
+	DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	String fechaHoraFormateada = fechaHoraAvtual.format(formato);
 
 
 	public Calculos( String monedaBase ,String monedaCotizada, double convercionMoneda) {
@@ -25,11 +33,21 @@ public class Calculos {
 		return miMoneda * monedaAPI;
 	}
 
+	public String getRutaArchivo() {
+		return rutaArchivo;
+	}
+
+
+	public String getFechaHoraFormateada() {
+		return fechaHoraFormateada;
+	}
+
 	@Override
 	public String toString() {
 		return
-				"Moneda base = " + monedaBase +
+				"\nMoneda base = " + monedaBase +
 				"\nMoneda cotizada = " + monedaCotizada+
-				" \nConvercion moneda = " + convercionMoneda;
+				"\nConvercion moneda = " + convercionMoneda+
+				"\nFecha y Hora de Convercion = " +fechaHoraFormateada;
 	}
 }

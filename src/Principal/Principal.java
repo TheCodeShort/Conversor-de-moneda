@@ -8,6 +8,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+
 import java.util.Scanner;
 
 public class Principal {
@@ -46,14 +47,18 @@ public class Principal {
                     Monedas moneda = new Gson().fromJson(response.body(), Monedas.class);//se convierte a un objeto para java
                     Calculos calculosAPI = new Calculos(moneda);
 
+
+
                     var calculos = new Calculos(monedaBase, monedaCotizada, calculosAPI.calculoMoneda(miMonedaLimpia));
                     System.out.println(calculos);
                     System.out.println("***************************************");
 
-
-                    FileWriter archivo = new FileWriter("misMonedas.txt");
-                    archivo.write(calculos.toString());
+                    FileWriter archivo = new FileWriter( calculos.getRutaArchivo(), true);
+                    archivo.write( calculos.toString());
                     archivo.close();
+
+
+
 
                 } catch (IOException | InterruptedException e) {
                     throw new RuntimeException(e);
@@ -77,6 +82,7 @@ public class Principal {
                         nun = 1;
                         break;
                 }
+
 
 
             }else {
